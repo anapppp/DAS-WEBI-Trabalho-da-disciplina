@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlunoModule } from './aluno/aluno.module';
+import { AlunoService } from './aluno/services/aluno.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { AlunoModule } from './aluno/aluno.module';
     AppRoutingModule,
     AlunoModule
   ],
-  providers: [],
+  providers: [
+    AlunoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
