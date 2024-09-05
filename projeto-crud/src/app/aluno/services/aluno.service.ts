@@ -28,5 +28,15 @@ export class AlunoService {
     return alunos.find(al => al.id === id);
   }
 
-  
+  atualizar(aluno: Aluno): void {
+    const alunos = this.listarTodos();
+    alunos.forEach((al, index) => {
+      if (al.id === aluno.id) {
+        alunos[index] = aluno;
+      }
+    });
+    localStorage[LS_CHAVE] = JSON.stringify(alunos)
+  }
+
+
 }
