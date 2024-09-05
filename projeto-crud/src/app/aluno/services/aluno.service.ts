@@ -38,5 +38,11 @@ export class AlunoService {
     localStorage[LS_CHAVE] = JSON.stringify(alunos)
   }
 
+  remover(id: number): void {
+    const alunos = this.listarTodos();
+    alunos.filter(al => al.id !== id);
+    localStorage[LS_CHAVE] = alunos;
+  }
+
 
 }
