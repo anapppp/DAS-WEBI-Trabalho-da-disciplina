@@ -22,4 +22,11 @@ export class AlunoService {
     alunos.push(aluno);
     localStorage[LS_CHAVE] = JSON.stringify(alunos)
   }
+
+  buscarPorId(id: number): Aluno | undefined {
+    const alunos = this.listarTodos();
+    return alunos.find(al => al.id === id);
+  }
+
+  
 }
