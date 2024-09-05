@@ -16,7 +16,10 @@ export class AlunoService {
 
   }
 
-  inserir(): void {
-
+  inserir(aluno: Aluno): void {
+    aluno.id = new Date().getTime();
+    const alunos = this.listarTodos();
+    alunos.push(aluno);
+    localStorage[LS_CHAVE] = JSON.stringify(alunos)
   }
 }
