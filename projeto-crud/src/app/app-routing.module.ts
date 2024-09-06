@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListarAlunoComponent } from './aluno/listar-aluno/listar-aluno.component';
+import { InserirAlunoComponent } from './aluno/inserir-aluno/inserir-aluno.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'alunos/listar',
     component: ListarAlunoComponent
+  },
+  {
+    path: 'alunos/novo',
+    component: InserirAlunoComponent
   }
 ];
 
