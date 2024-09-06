@@ -18,7 +18,8 @@
             <td> {{aluno.email}} </td>
             <td> {{aluno.dataNascimento}} </td>
             <td class="text-center" style="width: 300px">
-                <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                <a href="#" [routerLink]="['/alunos/editar',aluno.id]" title="Editar" alt="Editar"
+                    class="btn btn-xs btn-info">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
                 </a>
                 <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger">
