@@ -5,6 +5,6 @@ export class Aluno {
         public nome?: string,
         public cpf?: string,
         public email?: string,
-        public dateNascimento?: string
+        public dataNascimento?: string
     ) { }
 }
