@@ -21,5 +21,11 @@ export class ListarAlunoComponent {
     return this.alunoService.listarTodos();
   }
 
-
+  remover($event: any, aluno: Aluno): void {
+    $event.preventDefault();
+    if (confirm(`Deseja realmente remover o cadastro de ${aluno.nome}?`)) {
+      this.alunoService.remover(aluno.id!);
+      this.alunos = this.listarTodos();
+    }
+  }
 }
