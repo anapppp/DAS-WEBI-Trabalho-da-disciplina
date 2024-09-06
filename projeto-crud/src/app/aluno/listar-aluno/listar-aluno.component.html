@@ -7,7 +7,7 @@
             <th>E-mail</th>
             <th>Data de nascimento</th>
             <th class="text-center">
-                <a href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+                <a href="#" [routerLink]="['/alunos/novo']" title="Novo" alt="Novo" class="btn btn-xs btn-success">
                     <i class="fa fa-plus" aria-hidden="true"></i> Novo
                 </a>
             </th>
@@ -16,7 +16,7 @@
             <td> {{aluno.nome}} </td>
             <td> {{aluno.cpf}} </td>
             <td> {{aluno.email}} </td>
-            <td> {{aluno.dateNascimento}} </td>
+            <td> {{aluno.dataNascimento}} </td>
             <td class="text-center" style="width: 300px">
                 <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
