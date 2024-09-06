@@ -4,13 +4,15 @@ import { ListarAlunoComponent } from './listar-aluno/listar-aluno.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InserirAlunoComponent } from './inserir-aluno/inserir-aluno.component';
+import { EditarAlunoComponent } from './editar-aluno/editar-aluno.component';
 
 
 
 @NgModule({
   declarations: [
     ListarAlunoComponent,
-    InserirAlunoComponent
+    InserirAlunoComponent,
+    EditarAlunoComponent
   ],
   imports: [
     CommonModule,
