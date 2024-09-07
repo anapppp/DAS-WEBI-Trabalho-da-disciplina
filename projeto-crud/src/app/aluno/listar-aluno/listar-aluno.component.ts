@@ -19,6 +19,7 @@ export class ListarAlunoComponent {
 
   listarTodos(): Aluno[] {
     return this.alunoService.listarTodos();
+
   }
 
   remover($event: any, aluno: Aluno): void {
