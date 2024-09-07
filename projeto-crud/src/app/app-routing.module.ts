@@ -3,12 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListarAlunoComponent } from './aluno/listar-aluno/listar-aluno.component';
 import { InserirAlunoComponent } from './aluno/inserir-aluno/inserir-aluno.component';
 import { EditarAlunoComponent } from './aluno/editar-aluno/editar-aluno.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'alunos/listar',
+    redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'alunos',
