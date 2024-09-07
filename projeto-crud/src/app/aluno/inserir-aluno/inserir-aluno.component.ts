@@ -20,7 +20,7 @@ export class InserirAlunoComponent {
   inserir(): void {
     if (this.formAluno.form.valid) {
       this.alunoService.inserir(this.aluno);
-      this.router.navigate(["/alunos"])
+      this.router.navigate(["/alunos"]);
     }
   }
 
