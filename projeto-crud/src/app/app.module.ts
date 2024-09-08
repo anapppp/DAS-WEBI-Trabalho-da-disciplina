@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AlunoModule } from './aluno/aluno.module';
 import { AlunoService } from './aluno/services/aluno.service';
 import { HomeComponent } from './home/home.component';
+import { CursoModule } from './curso/curso.module';
+import { CursoService } from './curso/services/curso.service';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AlunoModule
+    AlunoModule,
+    CursoModule
   ],
   providers: [
-    AlunoService
+    AlunoService,
+    CursoService
   ],
   bootstrap: [AppComponent]
 })
