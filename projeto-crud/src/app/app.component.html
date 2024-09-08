@@ -1,10 +1,26 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-default" style="background-color: #00649C;">
+<div>
+  <nav class="navbar navbar-expand-lg bg-body-secondary" style="background-color: #00649C;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" routerLink="/home" style="color: #ffffff;">
-        {{title}}
+      <a class="navbar-brand" href="#" routerLink="/home" style="color: #0082BF;">
+        <i class="fas fa-home"></i> {{title}}
       </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/alunos" style="color: #00AAF0">Alunos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/cursos" style="color: #00AAF0">Cursos</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-  <router-outlet></router-outlet>
+  <div class="container-fluid w-75 mt-2">
+    <router-outlet></router-outlet>
+  </div>
 </div>
