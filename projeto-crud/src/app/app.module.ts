@@ -8,6 +8,9 @@ import { AlunoService } from './aluno/services/aluno.service';
 import { HomeComponent } from './home/home.component';
 import { CursoModule } from './curso/curso.module';
 import { CursoService } from './curso/services/curso.service';
+import { MatriculaModule } from './matricula/matricula.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { CursoService } from './curso/services/curso.service';
     BrowserModule,
     AppRoutingModule,
     AlunoModule,
-    CursoModule
+    CursoModule,
+    MatriculaModule,
+    NgbModule,
+    NgSelectModule
   ],
   providers: [
     AlunoService,
