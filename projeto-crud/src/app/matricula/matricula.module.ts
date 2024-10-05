@@ -6,20 +6,26 @@ import { InserirEditarMatriculaComponent } from './inserir-editar-matricula/inse
 import { ListarMatriculaComponent } from './listar-matricula/listar-matricula.component';
 import { ModalMatriculaComponent } from './modal-matricula/modal-matricula.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import { AlunoService } from '../aluno/services/aluno.service';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
 @NgModule({
   declarations: [
     InserirEditarMatriculaComponent,
     ListarMatriculaComponent,
-    ModalMatriculaComponent
+    ModalMatriculaComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+  ],
+  providers:[
+    provideNgxMask(),
   ]
 })
 export class MatriculaModule { }

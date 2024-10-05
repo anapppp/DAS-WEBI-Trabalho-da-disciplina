@@ -8,7 +8,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './modal-matricula.component.css'
 })
 export class ModalMatriculaComponent {
-  @Input() matricula: Matricula = new Matricula();
-
+  // @Input() matricula: Matricula = new Matricula();
+  @Input() matricula!: Matricula;
   constructor(public activeModal: NgbActiveModal){}
 }

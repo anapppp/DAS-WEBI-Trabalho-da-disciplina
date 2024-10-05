@@ -34,17 +34,25 @@ export class InserirEditarMatriculaComponent implements OnInit{
     this.cursos = this.cursoService.listarTodos();
   }
 
-  salvar(): void {
-    this.loading = true;
+
+  inserir(): void {
     if(this.formMatricula.form.valid){
-      if(this.novaMatricula){
-        this.matriculaService.inserir(this.matricula).subscribe(
-          matricula => {
-            this.loading = false;
-            this.router.navigate(["/matriculas"]);
-          });
-      }
+      this.matriculaService.inserir(this.matricula);
+      this.router.navigate(['/matriculas'])
     }
-    this.loading = false;
   }
+
+  // salvar(): void {
+  //   this.loading = true;
+  //   if(this.formMatricula.form.valid){
+  //     if(this.novaMatricula){
+  //       this.matriculaService.inserir(this.matricula).subscribe(
+  //         matricula => {
+  //           this.loading = false;
+  //           this.router.navigate(["/matriculas"]);
+  //         });
+  //     }
+  //   }
+  //   this.loading = false;
+  // }
 }

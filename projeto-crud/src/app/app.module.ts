@@ -11,6 +11,7 @@ import { CursoService } from './curso/services/curso.service';
 import { MatriculaModule } from './matricula/matricula.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MatriculaService } from './matricula/services/matricula.service';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CursoModule,
     MatriculaModule,
     NgbModule,
-    NgSelectModule
+    NgSelectModule,
   ],
   providers: [
     AlunoService,
-    CursoService
+    CursoService,
+    MatriculaService,
   ],
   bootstrap: [AppComponent]
 })
