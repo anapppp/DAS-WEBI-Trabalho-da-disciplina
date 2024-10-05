@@ -2,16 +2,20 @@ package br.com.das.web.crud.rest;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.das.web.crud.model.Aluno;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @CrossOrigin
 @RestController
 public class AlunoREST {
     public static List<Aluno> lista = new ArrayList<>();
+
+    @GetMapping("/alunos")
+    public List<Aluno> obterTodosAlunos() {
+        return lista;
+    }
 
     static {
         lista.add(new Aluno(1, "Maria Silva", "123.456.789-00", "maria.silva@email.com", "2000-05-10"));
