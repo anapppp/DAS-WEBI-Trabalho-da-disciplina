@@ -50,7 +50,7 @@ public class AlunoREST {
         return ResponseEntity.status(HttpStatus.CREATED).body(aluno);
     }
 
-    @PutMapping("pessoas/{id}")
+    @PutMapping("alunos/{id}")
     public ResponseEntity<Aluno> alterar(@PathVariable("id") int id, @RequestBody Aluno aluno) {
         Aluno a = alunos.stream().filter(alu -> alu.getId() == id).findAny().orElse(null);
         if (a != null) {
@@ -72,13 +72,5 @@ public class AlunoREST {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-    }
-
-    static {
-        alunos.add(new Aluno(1, "Maria Silva", "123.456.789-00", "maria.silva@email.com", "2000-05-10"));
-        alunos.add(new Aluno(2, "João Santos", "987.654.321-00", "joao.santos@email.com", "1998-11-20"));
-        alunos.add(new Aluno(3, "Ana Pereira", "456.789.123-00", "ana.pereira@email.com", "2001-03-15"));
-        alunos.add(new Aluno(4, "Lucas Oliveira", "321.654.987-00", "lucas.oliveira@email.com", "1999-08-30"));
-        alunos.add(new Aluno(5, "Fernanda Costa", "654.321.987-00", "fernanda.costa@email.com", "2002-12-05"));
     }
 }
