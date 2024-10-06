@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.das.web.crud.model.Aluno;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @CrossOrigin
 @RestController
@@ -48,6 +48,30 @@ public class AlunoREST {
             aluno.setId(a.getId() + 1);
         alunos.add(aluno);
         return ResponseEntity.status(HttpStatus.CREATED).body(aluno);
+    }
+
+    @PutMapping("pessoas/{id}")
+    public ResponseEntity<Aluno> alterar(@PathVariable("id") int id, @RequestBody Aluno aluno) {
+        Aluno a = alunos.stream().filter(alu -> alu.getId() == id).findAny().orElse(null);
+        if (a != null) {
+            a.setNome(aluno.getNome());
+            a.setCpf(aluno.getCpf());
+            a.setDataNascimento(aluno.getDataNascimento());
+            a.setEmail(aluno.getEmail());
+            return ResponseEntity.ok(a);
+        } else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    @DeleteMapping("alunos/{id}")
+    public ResponseEntity<Aluno> removerAluno(@PathVariable("id") int id) {
+        Aluno a = alunos.stream().filter(alu -> alu.getId() == id).findAny().orElse(null);
+        if (a != null) {
+            alunos.removeIf(alu -> alu.getId() == id);
+            return ResponseEntity.ok(a);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
     static {
