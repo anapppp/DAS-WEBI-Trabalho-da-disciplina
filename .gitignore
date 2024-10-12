@@ -36,6 +36,7 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+query_db_tb_sql.sql
 
 # System files
 .DS_Store
