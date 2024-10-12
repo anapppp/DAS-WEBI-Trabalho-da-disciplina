@@ -1,0 +1,15 @@
+-- Cria a tabela de cursos.
+create table tb_curso(
+    id_curso integer primary key generated always as identity,
+    nome_curso varchar(100) not null unique,
+    link_curso varchar(255) not null
+)
+
+-- Cria a tabela de alunos.
+create table tb_aluno(
+    id_aluno id_curso integer primary key generated always as identity,
+    nome_aluno varchar(100) not null,
+    cpf_aluno varchar(11) not null unique,
+    email_aluno varchar(100) not null,
+    dataNascimento_aluno varchar(10) not null
+)
