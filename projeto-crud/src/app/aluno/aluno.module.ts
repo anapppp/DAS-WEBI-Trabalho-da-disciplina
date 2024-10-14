@@ -15,8 +15,7 @@ import { HttpClient } from '@angular/common/http';
     CommonModule,
     RouterModule,
     FormsModule,
-    HttpClientng update @angular/material @angular/router
-
+    HttpClient
   ]
 })
 export class AlunoModule { }
