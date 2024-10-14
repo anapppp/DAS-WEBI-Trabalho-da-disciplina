@@ -1,0 +1,25 @@
+{
+    "alunos": [
+        {
+            "id": 1,
+            "nome": "Ana",
+            "cpf": "123456789",
+            "email": "ana@gmail.com",
+            "dataNascimento": "05/07/1975"
+        },
+        {
+            "id": 2,
+            "nome": "Maria",
+            "cpf": "789456123",
+            "email": "maria@gmail.com",
+            "dataNascimento": "18/06/1974"
+        },
+        {
+            "id": 3,
+            "nome": "Paula",
+            "cpf": "147258369",
+            "email": "paula@gmail.com",
+            "dataNascimento": "19/02/1986"
+        }
+    ]
+}
