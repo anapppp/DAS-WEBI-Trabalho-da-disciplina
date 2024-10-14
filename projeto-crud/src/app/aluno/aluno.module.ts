@@ -3,21 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ListarAlunoComponent } from './listar-aluno/listar-aluno.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { InserirAlunoComponent } from './inserir-aluno/inserir-aluno.component';
-import { EditarAlunoComponent } from './editar-aluno/editar-aluno.component';
-
-
+import { InserirEditarAlunoComponent } from './inserir-editar-aluno/inserir-editar-aluno.component';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     ListarAlunoComponent,
-    InserirAlunoComponent,
-    EditarAlunoComponent
+    InserirEditarAlunoComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClient
   ]
 })
 export class AlunoModule { }
