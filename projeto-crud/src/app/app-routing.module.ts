@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, provideRouter, withDebugTracing } from '@angular/router';
 import { ListarAlunoComponent } from './aluno/listar-aluno/listar-aluno.component';
-import { InserirAlunoComponent } from './aluno/inserir-aluno/inserir-aluno.component';
-import { EditarAlunoComponent } from './aluno/editar-aluno/editar-aluno.component';
+import { InserirEditarAlunoComponent } from './aluno/inserir-editar-aluno/inserir-editar-aluno.component';
 import { HomeComponent } from './home/home.component';
 import { ListarCursoComponent } from './curso/listar-curso/listar-curso.component';
-import { InserirCursoComponent } from './curso/inserir-curso/inserir-curso.component';
-import { EditarCursoComponent } from './curso/editar-curso/editar-curso.component';
+import { InserirEditarCursoComponent } from './curso/inserir-editar-curso/inserir-editar-curso.component';
 import { InserirEditarMatriculaComponent } from './matricula/inserir-editar-matricula/inserir-editar-matricula.component';
 import { ListarMatriculaComponent } from './matricula/listar-matricula/listar-matricula.component';
 import { bootstrapApplication } from '@angular/platform-browser';
@@ -32,11 +30,11 @@ const routes: Routes = [
   },
   {
     path: 'alunos/novo',
-    component: InserirAlunoComponent
+    component: InserirEditarAlunoComponent
   },
   {
     path: 'alunos/editar/:id',
-    component: EditarAlunoComponent
+    component: InserirEditarAlunoComponent
   },
   {
     path: 'cursos',
@@ -48,11 +46,11 @@ const routes: Routes = [
   },
   {
     path: 'cursos/novo',
-    component: InserirCursoComponent
+    component: InserirEditarCursoComponent
   },
   {
     path: 'cursos/editar/:id',
-    component: EditarCursoComponent
+    component: InserirEditarCursoComponent
   },
   {
     path: 'matriculas',

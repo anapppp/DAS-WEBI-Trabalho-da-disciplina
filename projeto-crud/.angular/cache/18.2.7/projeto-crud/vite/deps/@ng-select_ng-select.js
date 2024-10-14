@@ -1,11 +1,11 @@
 import {
   NG_VALUE_ACCESSOR
-} from "./chunk-DQLPK2YT.js";
+} from "./chunk-FTKJL3Y5.js";
 import {
   DOCUMENT,
   NgClass,
   NgTemplateOutlet
-} from "./chunk-2VRMSEMA.js";
+} from "./chunk-354KROLL.js";
 import {
   Attribute,
   ChangeDetectionStrategy,
@@ -27,26 +27,13 @@ import {
   Optional,
   Output,
   Renderer2,
-  Subject,
   TemplateRef,
   ViewChild,
   ViewEncapsulation$1,
-  __spreadValues,
-  animationFrameScheduler,
-  asapScheduler,
-  auditTime,
   booleanAttribute,
-  debounceTime,
-  filter,
   forwardRef,
-  fromEvent,
-  map,
-  merge,
   numberAttribute,
   setClassMetadata,
-  startWith,
-  takeUntil,
-  tap,
   ɵɵInputTransformsFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
@@ -94,7 +81,22 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-PP6LAVVV.js";
+} from "./chunk-ZAZBQFOJ.js";
+import {
+  Subject,
+  __spreadValues,
+  animationFrameScheduler,
+  asapScheduler,
+  auditTime,
+  debounceTime,
+  filter,
+  fromEvent,
+  map,
+  merge,
+  startWith,
+  takeUntil,
+  tap
+} from "./chunk-6EXQV4WU.js";
 
 // node_modules/@ng-select/ng-select/fesm2022/ng-select-ng-select.mjs
 var _c0 = ["content"];

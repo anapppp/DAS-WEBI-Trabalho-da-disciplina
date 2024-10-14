@@ -1,46 +1,106 @@
 import { Injectable } from '@angular/core';
 import { Aluno } from '../../shared/models/aluno.model';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { catchError, map, of, Observable, throwError } from 'rxjs';
 
-const LS_CHAVE = "alunos";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunoService {
+  BASE_URL = "http://localhost:8080/alunos"
+  httpOptions = {
+    observe: "response" as "response",
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+  constructor(private httpClient: HttpClient) { }
 
-  constructor() { }
-
-  listarTodos(): Aluno[] {
-    const alunos = localStorage[LS_CHAVE];
-    return alunos ? JSON.parse(alunos) : [];
-
+  listarTodos(): Observable<Aluno[] | null> {
+    return this.httpClient.get<Aluno[]>(this.BASE_URL, this.httpOptions).pipe(
+      map((resp: HttpResponse<Aluno[]>) =>{
+        if(resp.status != 200){
+          return null;
+        }
+        else{
+          return resp.body;
+        }
+      }), catchError((e, c) => {
+        if(e.status == 404){
+          return of(null);
+        }
+        else{
+          return throwError(()=> e);
+        }
+      })
+    )
   }
 
-  inserir(aluno: Aluno): void {
-    aluno.id = new Date().getTime();
-    const alunos = this.listarTodos();
-    alunos.push(aluno);
-    localStorage[LS_CHAVE] = JSON.stringify(alunos)
+  inserir(aluno: Aluno): Observable<Aluno | null> {
+    return this.httpClient.post<Aluno>(this.BASE_URL, JSON.stringify(aluno), this.httpOptions).pipe(
+      map((resp: HttpResponse<Aluno>) => {
+        if(resp.status != 201){
+          return null;
+        }
+        else{
+          return resp.body;
+        }
+      }), catchError((e, c) => {
+        return throwError(()=> e)
+      })
+    )
   }
 
-  buscarPorId(id: number): Aluno | undefined {
-    const alunos = this.listarTodos();
-    return alunos.find(al => al.id === id);
+  buscarPorId(id?: number): Observable<Aluno | null>{
+    return this.httpClient.get<Aluno>(this.BASE_URL + "/" + id, this.httpOptions).pipe(
+      map((resp: HttpResponse<Aluno>) => {
+        if(resp.status != 200){
+          return null;
+        }
+        else {
+          return resp.body;
+        }
+      }), catchError((e, c) => {
+        if(e.status==404){
+          return of(null);
+        }
+        else{
+          return throwError(()=> e);
+        }
+      })
+    );
   }
 
-  atualizar(aluno: Aluno): void {
-    const alunos = this.listarTodos();
-    alunos.forEach((al, index) => {
-      if (al.id === aluno.id) {
-        alunos[index] = aluno;
-      }
-    });
-    localStorage[LS_CHAVE] = JSON.stringify(alunos)
+  atualizar(aluno: Aluno): Observable<Aluno | null> {
+    return this.httpClient.put<Aluno>(this.BASE_URL + '/' + aluno.id, JSON.stringify(aluno), this.httpOptions).pipe(
+      map((resp: HttpResponse<Aluno>) => {
+        if(resp.status != 200){
+          return null;
+        }
+        else {
+          return resp.body;
+        }
+      }), catchError((e,c) => {
+        return throwError(()=> e)
+      })
+    )
   }
 
-  remover(id: number): void {
-    let alunos = this.listarTodos();
-    alunos = alunos.filter(aluno => aluno.id !== id);
-    localStorage[LS_CHAVE] = JSON.stringify(alunos);
+
+  remover(id: number): Observable<Aluno | null> {
+    return this.httpClient.delete<Aluno>(this.BASE_URL + '/' + id, this.httpOptions).pipe(
+      map((resp: HttpResponse<Aluno>) => {
+        if(resp.status != 200){
+          return null;
+        }
+        else {
+          return resp.body;
+        }
+      }), catchError((e, c) => {
+          return throwError(()=> e);
+      })
+    );
   }
 }

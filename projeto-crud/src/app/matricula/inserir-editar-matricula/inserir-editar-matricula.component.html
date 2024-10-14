@@ -1,16 +1,14 @@
-<h1>qqer csi</h1>
-
 <h1 *ngIf="novaMatricula">Nova Matrícula</h1>
 <h1 *ngIf="!novaMatricula">Editar Matrícula</h1>
 <div class="well">
-    <form #formUsuario="ngForm">
+    <form #formMatricula="ngForm">
         <div class="form-group">
             <label for="nome">Aluno:</label>
-            <ng-select name="aluno" [items]="alunos" blindLabel="nome" [(ngModel)] = "matricula.aluno" placeholder="Selecione um aluno."></ng-select>
+            <ng-select name="aluno" [items]="alunos" bindValue="id" bindLabel="nome" [compareWith]="alunoCompare" [(ngModel)] = "matricula.aluno" placeholder="Selecione um aluno."></ng-select>
         </div>
         <div class="form-group">
             <label for="nome">Curso:</label>
-            <ng-select name="curso" [items]="cursos" blindLabel="nome" [(ngModel)] = "matricula.curso" placeholder="Selecione um curso."></ng-select>
+            <ng-select name="curso" [items]="cursos" bindValue="id" bindLabel="nome" [compareWith]="cursoCompare" [(ngModel)] = "matricula.curso" placeholder="Selecione um curso."></ng-select>
         </div>
 
         <div class="form-group">

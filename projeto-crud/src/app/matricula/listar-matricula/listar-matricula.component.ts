@@ -28,6 +28,7 @@ export class ListarMatriculaComponent implements OnInit{
           this.matriculas = [];
         }
         else {
+          console.log("Pegou os dados do backend de matriculas.")
           this.matriculas = data;
         }
       },

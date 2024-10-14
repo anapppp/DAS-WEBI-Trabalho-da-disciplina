@@ -1,4 +1,5 @@
-<h1>Alterar cadastro de aluno</h1>
+<h1 *ngIf="novoAluno">Cadastrar novo Aluno</h1>
+<h1 *ngIf="!novoAluno">Editar aluno {{ aluno.nome }}</h1>
 <div class="well">
     <form #formAluno="ngForm">
         <div class="form-group">
@@ -27,14 +28,14 @@
         </div>
         <div class="form-group">
             <label for="Data de nascimento">Data de nascimento:</label>
-            <input type="text" class="form-control" id="data-nascimento" name="data-nascimento"
+            <input type="text" mask="d0/M0/0000" class="form-control" id="data-nascimento" name="data-nascimento"
                 [(ngModel)]="aluno.dataNascimento" #data="ngModel" required>
             <div *ngIf="data.errors && (data.dirty || data.touched)" class="alert alert-danger">
                 <div [hidden]="!data.errors['required']"> Digite uma data válida. </div>
             </div>
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-primary" (click)="editar()" [disabled]="!formAluno.form.valid">
+            <button type="button" class="btn btn-primary" (click)="salvar()" [disabled]="!formAluno.form.valid">
                 <i class="fa fa-save" aria-hidden="true"></i>
                 Salvar
             </button>

@@ -28,6 +28,12 @@ public class Aluno {
     @Column(name="datanascimento_aluno")
     private String dataNascimento;
 
+    public Aluno(){}
+    public Aluno(int id){
+        this.id = id;
+    }
+
+
     public int getId() {
         return id;
     }

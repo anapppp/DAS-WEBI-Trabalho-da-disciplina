@@ -39,11 +39,11 @@ public class CursoREST {
         return ResponseEntity.ok(cursos);
     }
 
-    @GetMapping("/cursos/{nome}")
-    public ResponseEntity<Curso> obterCursoPorNome(@PathVariable String nome) {
+    @GetMapping("/cursos/{id}")
+    public ResponseEntity<Curso> obterCursoPorId(@PathVariable int id) {
         // Curso a = cursos.stream().filter(cur -> cur.getId() == id).findAny().orElse(null);
 
-        Optional<Curso> cursoOptional = cursoRepository.findByNome(nome);
+        Optional<Curso> cursoOptional = cursoRepository.findById(id);
         return cursoOptional.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 
         // if (a == null)

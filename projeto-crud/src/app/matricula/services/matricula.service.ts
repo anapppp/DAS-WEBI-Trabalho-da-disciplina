@@ -19,20 +19,23 @@ export class MatriculaService {
       })
     }
 
+    public alunoId: number = 0;
+    public cursoId: number = 0;
+
   constructor(private httpClient: HttpClient) { }
 
   listarTodos(): Observable<Matricula[] | null> {
     return this.httpClient.get<Matricula[]>(this.BASE_URL,this.httpOptions).pipe(
       map((resp: HttpResponse<Matricula[]>) => {
         if(resp.status != 200){
-          return [];
+          return null;
         }
         else {
           return resp.body;
         }
       }), catchError((e, c) => {
         if(e.status==404){
-          return of([]);
+          return of(null);
         }
         else{
           return throwError(()=> e);
@@ -41,7 +44,7 @@ export class MatriculaService {
     );
   }
 
-  buscarPorId(id: string): Observable<Matricula | null>{
+  buscarPorId(id: number): Observable<Matricula | null>{
     return this.httpClient.get<Matricula>(this.BASE_URL + "/" + id, this.httpOptions).pipe(
       map((resp: HttpResponse<Matricula>) => {
         if(resp.status != 200){
@@ -62,6 +65,7 @@ export class MatriculaService {
   }
 
   inserir(matricula: Matricula): Observable<Matricula | null>{
+    console.log(matricula);
     return this.httpClient.post<Matricula>(this.BASE_URL, JSON.stringify(matricula), this.httpOptions).pipe(
       
       map((resp: HttpResponse<Matricula>) => {
@@ -69,6 +73,7 @@ export class MatriculaService {
           return null;
         }
         else {
+          
           return resp.body;
         }
       }), catchError((e, c) => {
@@ -93,7 +98,7 @@ export class MatriculaService {
     );
   }
 
-  remover(id: string): Observable<Matricula | null>{
+  remover(id: number): Observable<Matricula | null>{
     return this.httpClient.delete<Matricula>(this.BASE_URL + '/' + id, this.httpOptions).pipe(
       map((resp: HttpResponse<Matricula>) => {
         if(resp.status != 200){

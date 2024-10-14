@@ -11,6 +11,7 @@ import { CursoService } from './curso/services/curso.service';
 import { MatriculaModule } from './matricula/matricula.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CursoModule,
     MatriculaModule,
     NgbModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule
   ],
   providers: [
     AlunoService,

@@ -13,9 +13,13 @@
             <tr *ngFor="let curso of cursos">
                 <td> {{curso.nome}} </td>
                 <td> {{curso.link}} </td>
-                <td class="text-center" style="width: 300px">
+                <td class="text-center" style="width: 400px">
+                <button type="button" class="btn btn-xs btn-info" (click)="abrirModal(curso)">
+                    <i class="fa fa-eye" aria-hidden="true"></i> 
+                    Ver
+                </button>
                     <a href="#" [routerLink]="['/cursos/editar', curso.id]" title="Editar" alt="Editar"
-                        class="btn btn-xs btn-info">
+                        class="btn btn-xs btn-warning">
                         <i class="fa fa-edit" aria-hidden="true"></i> Editar
                     </a>
                     <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"

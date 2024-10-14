@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InserirAlunoComponent } from './inserir-aluno.component';
+import { ModalAlunoComponent } from './modal-aluno.component';
 
-describe('InserirAlunoComponent', () => {
-  let component: InserirAlunoComponent;
-  let fixture: ComponentFixture<InserirAlunoComponent>;
+describe('ModalAlunoComponent', () => {
+  let component: ModalAlunoComponent;
+  let fixture: ComponentFixture<ModalAlunoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InserirAlunoComponent]
+      declarations: [ModalAlunoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InserirAlunoComponent);
+    fixture = TestBed.createComponent(ModalAlunoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

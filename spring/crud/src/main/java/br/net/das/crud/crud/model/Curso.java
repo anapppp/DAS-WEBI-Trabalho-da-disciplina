@@ -22,6 +22,11 @@ public class Curso {
     @Column(name="link_curso")
     private String link;
 
+    public Curso(){}
+    public Curso(int id){
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

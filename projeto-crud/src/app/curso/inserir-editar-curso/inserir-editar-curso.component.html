@@ -1,4 +1,5 @@
-<h1>Alterar cadastro de curso</h1>
+<h1 *ngIf="novoCurso">Cadastrar novo curso.</h1>
+<h1 *ngIf="!novoCurso">Editar curso {{ curso.nome }}</h1>
 <div class="well">
     <form #formCurso="ngForm">
         <div class="form-group">
@@ -18,7 +19,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-primary" (click)="editar()" [disabled]="!formCurso.form.valid">
+            <button type="button" class="btn btn-primary" (click)="salvar()" [disabled]="!formCurso.form.valid">
                 <i class="fa fa-save" aria-hidden="true"></i>
                 Salvar
             </button>

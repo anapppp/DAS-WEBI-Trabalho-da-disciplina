@@ -5,7 +5,11 @@ import { RouterModule } from '@angular/router';
 import { InserirEditarMatriculaComponent } from './inserir-editar-matricula/inserir-editar-matricula.component';
 import { ListarMatriculaComponent } from './listar-matricula/listar-matricula.component';
 import { ModalMatriculaComponent } from './modal-matricula/modal-matricula.component';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { NgSelectComponent, NgSelectModule } from '@ng-select/ng-select';
+import { AlunoService } from '../aluno/services/aluno.service';
+import { CursoService } from '../curso/services/curso.service';
+import { MatriculaService } from './services/matricula.service';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
 
@@ -19,7 +23,18 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CommonModule,
     FormsModule,
     RouterModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    NgSelectComponent
+  ],
+  providers: [
+    AlunoService,
+    CursoService,
+    MatriculaService,
+    [
+      provideNgxMask()
+    ]
   ]
 })
 export class MatriculaModule { }
